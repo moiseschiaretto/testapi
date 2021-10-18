@@ -1,0 +1,32 @@
+1634527579394	Move compilation unit
+1634539839796	Copy compilation unit
+1634541488868	Rename type 'Test_GET_Id'
+1634541665916	Rename type 'Test_GET_Id2'
+1634541687903	Rename type 'Test_GET_All'
+1634541767146	Rename type 'Test_CRUD'
+1634543479469	Rename type 'Test04_CRUD'
+1634543525105	Rename type 'Test02_GET_Id'
+1634543586300	Copy compilation unit
+1634543614107	Copy compilation unit
+1634543675984	Rename type 'Test01_GET_Id'
+1634543745465	Rename type 'Test02_GET_Id_Array'
+1634543794756	Rename type 'Test02_GET_Array'
+1634543812209	Rename type 'Test02_GET_Array_ID0'
+1634544493330	Rename package 'api'
+1634544517063	Rename package 'api_cr4d'
+1634545009124	Rename type 'Test06_DELETE'
+1634545022874	Rename compilation unit 'Test05_PUT.java'
+1634545042209	Rename compilation unit 'Test05_PUT_ID.java'
+1634545216382	Delete element
+1634545475871	Delete element
+1634562620423	Encapsulate field 'name'
+1634562731078	Encapsulate field 'job'
+1634562740757	Encapsulate field 'date'
+1634562899305	Encapsulate field 'job'
+1634563097434	Encapsulate field 'name'
+1634563109400	Encapsulate field 'job'
+1634563119768	Encapsulate field 'date'
+1634563731529	Encapsulate field 'name'
+1634564032348	Encapsulate field 'name'
+1634564757313	Delete element
+1634565152759	Infer generic type arguments

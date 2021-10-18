@@ -1,0 +1,44 @@
+package api_crud;
+
+public class UserDTO (String name, String job, String date) {
+	private String name;
+	private String job;
+	private String date;
+
+
+	public setDados() {
+		this.setName(name);
+		this.setJob(job);
+		this.setDate(date);
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getJob() {
+		return job;
+	}
+
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+}

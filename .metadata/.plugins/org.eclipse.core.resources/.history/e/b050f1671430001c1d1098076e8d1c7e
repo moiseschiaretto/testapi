@@ -1,0 +1,5 @@
+package api_crud;
+
+public class UserDTO {
+
+}

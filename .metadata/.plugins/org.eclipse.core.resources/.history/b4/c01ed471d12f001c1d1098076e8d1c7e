@@ -1,0 +1,82 @@
+package api;
+
+	import org.junit.Test;
+
+	import static io.restassured.RestAssured.*;
+	import static io.restassured.RestAssured.given;
+	import io.restassured.response.Response;
+
+	public class Test_CRUD {
+		
+		@Test
+		public void post() {
+			String uri = "https://reqres.in/api/users";
+			String corpo = "{\"name\": \"Moises\", \"job\": \"QA\"}";
+			
+			
+			// Given (Dado que)
+			Response responsePost = given().contentType("application/json").body(corpo)
+			
+			.when().post(uri);
+			
+			responsePost.then().statusCode(201);
+			
+			System.out.println("POST");
+			System.out.println(corpo);
+			System.out.println(responsePost.body().asString());
+			System.out.println();
+			
+		}
+		
+		@Test
+		public void put() {
+			String uri = "https://reqres.in/api/users";
+			String corpo = "{\"name\": \"Moises - PUT\", \"job\": \"QA - PUT\"}";
+			
+			
+			// Given (Dado que)
+			Response responsePut = given().contentType("application/json").body(corpo).
+			when().post(uri);
+			
+			responsePut.then().statusCode(201);
+			
+			System.out.println("PUT");
+			System.out.println(corpo);
+			System.out.println(responsePut.body().asString());
+			System.out.println();
+			
+		}
+		
+		@Test
+		public void getId() {
+			String uri = "https://reqres.in/api/users/?id=2";
+							
+			// Given (Dado que)
+			Response responseGetId = given().contentType("application/json").
+			when().get(uri);
+			
+			responseGetId.then().statusCode(200);
+			
+			System.out.println("GET(Id)");
+			System.out.println(responseGetId.body().asString());
+			System.out.println();
+		
+		}
+		
+		@Test
+		public void getAll() {
+			String uri = "https://reqres.in/api/users";
+							
+			// Given (Dado que)
+			Response responseGetAll = given().contentType("application/json").
+			when().get(uri);
+			
+			responseGetAll.then().statusCode(200);
+			
+			System.out.println("GET(All)");
+			System.out.println(responseGetAll.body().asString());
+			System.out.println();
+		
+		}
+}
+

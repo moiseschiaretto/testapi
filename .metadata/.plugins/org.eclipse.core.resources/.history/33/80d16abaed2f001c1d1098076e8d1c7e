@@ -1,0 +1,31 @@
+package api_crud;
+
+import org.junit.Test;
+import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+import io.restassured.response.Response;
+import org.hamcrest.Matchers;
+
+public class Test05_PUT_Id {
+	 
+	 @Test
+	 public void put() {
+	 	UserData putUser = new UserData("Moises", "QA");
+	 	
+	 	given()
+		 	.log().method()
+			.log().uri()
+			.contentType("application/json")
+			.body(putUser)
+	 	.when()
+	 		.put("/api/users")
+	 	.then()
+	 		.log().all()
+	 		.statusCode(200)
+	 		.body("name", Matchers.is(putUser.getName()))
+	 		.body("job", Matchers.is(putUser.getJob()))
+	 		.body("updatedAt", Matchers.notNullValue())
+	 	;
+	 
+	 }
+}

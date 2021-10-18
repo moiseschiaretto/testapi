@@ -1,0 +1,30 @@
+package api_crud;
+
+public class UserDTO {
+	private String name;
+	private String job;
+	private String updateAt;
+
+
+	public void setDados (String name, String job, String updateAt) {
+		this.setName(name);
+		this.job = job;
+		this.updateAt = updateAt;
+	}
+
+public UserDTO(String name, String job, String updateAt) {
+	// TODO Auto-generated constructor stub
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+}
+
+
+
+	

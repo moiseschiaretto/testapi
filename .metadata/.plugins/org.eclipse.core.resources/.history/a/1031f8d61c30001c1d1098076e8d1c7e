@@ -1,0 +1,37 @@
+package api_crud;
+
+import org.junit.Test;
+import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+import org.hamcrest.Matchers;
+import org.json.simple.JSONObject;
+
+public class Test05_PUT_Id {
+	int id = 200; 
+	
+	 @Test
+	 public void put() {
+		 String uri = "https://reqres.in/api/users/" + id;
+		 JSONObject request = new JSONObject(); 
+	 	
+	 	request.put("name", "Maria");
+	 	request.put("job", "QA");
+	 		 	
+	 	given()
+		 	.log().method()
+			.log().uri()
+			.header("ContentType", "application/json")
+			.body(request("name", "Maria")
+			.body(request("job", "QA")
+	 	.when()
+	 		.put(uri)
+	 	.then()
+	 		.log().all()
+	 		.statusCode(200)
+	 		.body("name", Matchers.is("Maria"))
+	 		.body("job", Matchers.is("QA"))
+	 		.body("updatedAt", Matchers.notNullValue())
+	 	;
+	 
+	 }
+}

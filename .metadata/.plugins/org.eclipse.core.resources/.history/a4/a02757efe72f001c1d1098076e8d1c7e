@@ -1,0 +1,39 @@
+package api;
+
+	import org.hamcrest.Matchers;
+import org.junit.Test;
+
+	import static io.restassured.RestAssured.*;
+	import static io.restassured.RestAssured.given;
+	import io.restassured.response.Response;
+
+	public class Test04_CRUD {
+		
+		@Test
+		public void post() {
+			String uri = "https://reqres.in/api/users";
+			String corpo = "{\"name\": \"Moises\", \"job\": \"QA - Post\"}";
+						
+			// Given
+				Response responsePost = given().contentType("application/json")
+				.body(corpo)
+				.log().method()
+				.log().uri()
+			// When
+				.when()
+				.post(uri);
+			// Then
+			responsePost.then()
+				.statusCode(201)
+				.body("name", Matchers.is("Moises"))
+				.body("job", Matchers.is("QA - Post"))
+			;
+			
+			System.out.println("POST - Request");
+			System.out.println(corpo);
+			System.out.println();
+			System.out.println("Response");
+			System.out.println(responsePost.body().asString());
+		}
+}
+

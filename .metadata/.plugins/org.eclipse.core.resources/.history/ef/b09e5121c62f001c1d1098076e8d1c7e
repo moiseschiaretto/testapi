@@ -1,0 +1,26 @@
+package api;
+
+import org.junit.Test;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.request;
+
+public class Test_GET_Id {
+	int id = 1;
+	
+	@Test
+	public void getId() {
+		String uri = "https://reqres.in/api/users/" + id;
+		
+		given()
+			.log().method()
+			.log().uri()
+		.when()
+			.get(uri)
+		.then()
+			.statusCode(200)
+			//.log().all()
+		;
+		
+	}
+
+}

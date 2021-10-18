@@ -1,0 +1,23 @@
+package api_crud;
+
+ public class Test05_PUT_Id {
+	 
+	 @Test
+	 public void put() {
+	 	UserDTO putuser = new UserDTO("Moises", "QA");
+	 	
+	 	given()
+	 		.log().all()
+	 		.contentType(ContentType.JSON)
+	 		.body(atualizarUsuario)
+	 	.when()
+	 		.put("/api/users")
+	 	.then()
+	 		.log().all()
+	 		.statusCode(200)
+	 		.body("name", Matchers.is(atualizarUsuario.getName()))
+	 		.body("job", Matchers.is(atualizarUsuario.getJob()))
+	 		.body("updatedAt", Matchers.notNullValue())
+	 	;
+	 
+ }

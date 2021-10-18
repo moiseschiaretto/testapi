@@ -1,0 +1,22 @@
+package api;
+
+import org.junit.Test;
+import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+
+public class Test06_DELETE {
+	 int id = 265;
+	 
+	 @Test
+	 public void excluirUsuario() {
+	 	given()
+	 		.log().all()
+	 	.when()
+	 		.delete("/api/users/" + id)
+	 	.then()
+	 		.log().all()
+	 		.statusCode(204)
+	 	;
+	 }
+	 
+ }

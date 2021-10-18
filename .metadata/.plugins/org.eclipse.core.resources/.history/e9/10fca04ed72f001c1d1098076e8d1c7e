@@ -1,0 +1,51 @@
+package api;
+
+	import org.junit.Test;
+
+	import static io.restassured.RestAssured.*;
+	import static io.restassured.RestAssured.given;
+	import io.restassured.response.Response;
+
+	public class Test_CRUD {
+		
+		@Test
+		public void post() {
+			String uri = "https://reqres.in/api/users";
+			String corpo = "{\"name\": \"Moises\", \"job\": \"QA\"}";
+			
+			
+			// Given
+			Response responsePost = given().contentType("application/json").body(corpo)
+			// When
+			.when().post(uri);
+			// Then
+			responsePost.then().statusCode(201);
+			
+			System.out.println("POST");
+			System.out.println(corpo);
+			System.out.println(responsePost.body().asString());
+			System.out.println();
+			
+		}
+		
+		@Test
+		public void put() {
+			String uri = "https://reqres.in/api/users";
+			String corpo = "{\"name\": \"Moises - PUT\", \"job\": \"QA - PUT\"}";
+			
+			
+			// Given
+			Response responsePut = given().contentType("application/json").body(corpo)
+			// When
+			.when().post(uri);
+			
+			responsePut.then().statusCode(201);
+			
+			System.out.println("PUT");
+			System.out.println(corpo);
+			System.out.println(responsePut.body().asString());
+			System.out.println();
+			
+		}
+}
+
